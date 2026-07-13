@@ -1,0 +1,13 @@
+{
+  "name": "playwright-docflow-api-tests",
+  "version": "1.0.0",
+  "description": "API test automation framework (Playwright + TypeScript) for a SaaS document-generation & template management platform",
+  "scripts": {
+    "test": "playwright test --config=playwright.api.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "typescript": "^5.5.0",
+    "allure-playwright": "^3.0.0"
+  }
+}
