@@ -1,10 +1,18 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests/api',
+  testDir: './ui-tests',
+  globalSetup: './global-setup.ts',
   reporter: [['list'], ['allure-playwright']],
   use: {
-    baseURL: process.env.API_BASE_URL || 'https://api.example.com',
-    extraHTTPHeaders: { 'Content-Type': 'application/json' },
+    baseURL: process.env.BASE_URL || 'https://demo.example.com',
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
   },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
 });
